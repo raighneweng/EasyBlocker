@@ -1,0 +1,41 @@
+{
+    "name": "EasyBlokcerServer",
+    "version": "1.0.0",
+    "license": "MIT",
+    "author": "Raighne Weng <raighne.weng@gmail.com>",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc -w",
+        "lint": "tslint -c tslint.json -p tsconfig.json",
+        "clean": "rm -rf dist",
+        "start": "yarn clean && yarn build && node dist",
+        "launch": "node dist",
+        "test": "jest --config ./jest.config.json",
+        "test:coverage": "jest --config ./jest.config.json --coverage"
+    },
+    "dependencies": {
+        "dotenv": "^7.0.0",
+        "koa": "^2.7.0",
+        "koa-bodyparser": "^4.2.1",
+        "koa-router": "^7.4.0",
+        "koa-static": "^5.0.0",
+        "mongoose": "^5.11.18",
+        "restify-errors": "^7.0.0",
+        "uuid": "^3.3.3",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "@shopify/jest-koa-mocks": "^2.1.0",
+        "@types/jest": "^24.0.6",
+        "@types/koa": "^2.0.48",
+        "@types/koa-bodyparser": "^4.2.2",
+        "@types/koa-router": "^7.0.40",
+        "@types/koa-static": "^4.0.1",
+        "@types/restify-errors": "^4.3.3",
+        "jest": "^24.1.0",
+        "mongodb-memory-server": "^5.2.1",
+        "ts-jest": "^24.0.0",
+        "tslint": "^5.12.1",
+        "typescript": "^3.9.3"
+    }
+}
