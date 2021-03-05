@@ -25,7 +25,7 @@ try {
     app.on('error', (err, ctx) => {
         logger.error(
             ctx.state.requestId,
-            `[REQ]${ctx.request.method}:${ctx.request.url},[ERROR]:${JSON.stringify(err)}`,
+            `[REQ]${ctx.request.method}:${ctx.request.url},[ERROR]:${err.msg}`,
         );
     });
 

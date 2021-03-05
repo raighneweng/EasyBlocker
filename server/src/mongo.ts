@@ -12,6 +12,7 @@ function connect(url: string, ssl: boolean, writeConcern: boolean) {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
+        useUnifiedTopology: true,
         ssl,
         authSource: 'admin',
         poolSize: 200,
