@@ -21,6 +21,16 @@ try {
 
     app.keys = ['EasyBlocker'];
 
+    passport.serializeUser(function (user: any, done) {
+        // console.dir(user);
+        done(null, user.id);
+    });
+
+    passport.deserializeUser(function (id, done) {
+        // console.log(id);
+        done(id);
+    });
+
     passport.use(
         new Strategy(
             {
@@ -28,9 +38,10 @@ try {
                 consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
                 callbackURL: `${process.env.BASE_URL}/auth/twitter/callback`,
             },
-            function (token, tokenSecret, profile, cb) {
+            function (token, tokenSecret, profile, done) {
                 // start clear followers
                 console.log(token, tokenSecret);
+                return done(null, profile);
             },
         ),
     );

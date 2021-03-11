@@ -12,10 +12,9 @@ router.get('/auth/twitter', passport.authenticate('twitter'));
 
 router.get(
     '/auth/twitter/callback',
-    passport.authenticate('twitter', { failureRedirect: '/' }),
+    passport.authenticate('twitter', { failureRedirect: '/authFailed' }),
     (ctx: any, next: Function) => {
-        console.log('start....');
-        ctx.redirect('/');
+        ctx.redirect('/start');
     },
 );
 
