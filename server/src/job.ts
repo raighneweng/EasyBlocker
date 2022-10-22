@@ -22,6 +22,13 @@ const blockUser = async function (screenName: string) {
     return res;
 };
 
+const removeFollow = async function (userId: string) {
+    const res = await client.post('https://api.twitter.com/1.1/friendships/destroy.json', {
+        user_id: userId,
+    });
+    return res;
+};
+
 function sleep(ms: number) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
@@ -50,7 +57,8 @@ async function startBlock(startCursor: number): Promise<any> {
                 ) {
                     // start block user
                     console.log('userID: ' + user.id + ', screen_name:' + user.screen_name);
-                    const blockRes = await blockUser(user.screen_name);
+                    // const blockRes = await blockUser(user.screen_name);
+                    await removeFollow(user.id);
                 }
             }
         }
